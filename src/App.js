@@ -1,9 +1,11 @@
 import './App.css';
 import ListaDeTareas from './components/listadetareas';
+import { TaskContextProvider } from './context/TaskContext'
 
 
 function App() {
   return (
+    <TaskContextProvider>
     <div className="aplicacion-tareas">
       <div className="logo-contenedor">
         <h2 className='logo'>Lista de Gastos, Vizmar Vizcaino</h2>
@@ -13,6 +15,7 @@ function App() {
         <ListaDeTareas />
       </div>
     </div>
+    </TaskContextProvider>
   );
 }
 

@@ -29,13 +29,13 @@ export const TaskContextProvider = (props) => {
     setTareas(tareaActualizadas)
   }
   return (
-    <TaskContextProvider value={{
+    <TaskContext.Provider value={{
       tareas,
       agregarTarea,
       eliminarTarea,
       completarTarea
     }}>
         {props.children}
-    </TaskContextProvider>
+    </TaskContext.Provider>
   )
 }
