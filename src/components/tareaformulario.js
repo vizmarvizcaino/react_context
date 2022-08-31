@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { TaskContext } from '../context/TaskContext'
 import '../stylesheet/tareaformulario.css'
 import { v4 as uuidv4 } from 'uuid'
 
-function TareaFormulario(props) {
+function TareaFormulario() {
   const [input, setInput] = useState('')
+  const { agregarTarea } = useContext(TaskContext)
   
   function manejarCambio(e) {
     const notNumber = 'Por Favor Ingrese Un Numero Correctamente'
@@ -11,19 +13,17 @@ function TareaFormulario(props) {
       return alert(notNumber)
   } else {
     setInput(e.target.value)
-    console.log(e.target.value)
   }
   }
 
   function manejarEnvio(e) {
     e.preventDefault()
-
     const tareaNueva = {
       id: uuidv4(),
       texto: input,
       completada: false
     }
-    props.onSubmit(tareaNueva)
+    agregarTarea(tareaNueva)
   }
 
   return (
